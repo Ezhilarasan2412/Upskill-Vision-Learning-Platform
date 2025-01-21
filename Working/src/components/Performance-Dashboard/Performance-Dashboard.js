@@ -23,6 +23,12 @@ function UserProgress() {
     fetchProgressData();
   }, []);
 
+  const displayValue = (value) => {
+    if (value === null || value === undefined) return ''; // Blank for unattempted fields
+    return value; // Show actual value, including 0
+  };
+
+
   if (loading) {
     return <p>Loading progress...</p>;
   }
@@ -38,9 +44,12 @@ function UserProgress() {
             <th>Username</th>
             <th>Module Title</th>
             <th>Completion Status</th>
-            <th>Quiz Score</th>
             <th>Resources Completed</th>
-            <th>Pass/Fail Status</th>
+            <th>Quiz Score</th>
+            <th>Quiz Status</th>
+            <th>Correct Answers</th> 
+            <th>Incorrect Answers</th> 
+            <th>Skipped Answers</th> 
           </tr>
         </thead>
         <tbody>
@@ -55,9 +64,12 @@ function UserProgress() {
                 <td>{item.username}</td>
                 <td>{item.module_title}</td>
                 <td>{item.completion_status}</td>
-                <td>{item.quiz_score}</td>
-                <td>{item.resources_completed}</td>
+                <td>{displayValue(item.resources_completed)}</td>
+                <td>{displayValue(item.quiz_score)}</td>
                 <td>{item.pass_fail_status}</td>
+                <td>{displayValue(item.correct_answers)}</td>
+                <td>{displayValue(item.incorrect_answers)}</td>
+                <td>{displayValue(item.skipped_answers)}</td>
               </tr>
             ))
           )}

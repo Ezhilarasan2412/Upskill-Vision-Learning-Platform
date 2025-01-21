@@ -10,6 +10,8 @@ const LoginPage = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [errorOtp, setErrorOtp] = useState('');
   const [roleId, setRoleId] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isVerifyingOtp, setIsVerifyingOtp] = useState(false);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -22,6 +24,9 @@ const LoginPage = () => {
       return;
     }
 
+    setIsLoading(true);
+    setErrorMessage("");
+
     try {
       const response = await axios.post('http://127.0.0.1:5000/api/login', {
         email,
@@ -31,28 +36,28 @@ const LoginPage = () => {
 
       // On successful login, store role_id and user_id in localStorage
       const { user_id, role_id } = response.data; // Destructure the response
-      console.log("User ID:", user_id); // Log user_id to the console
-      console.log("Role ID:", role_id); // Log role_id to the console
 
       localStorage.setItem('user_id', user_id);
       localStorage.setItem('role_id', role_id);
 
       setOtpSent(true);
-      setErrorMessage('');
+      // setErrorMessage('');
       console.log(response.data.message);
     } catch (error) {
       if (error.response) {
         const status = error.response.status;
         if (status === 400) {
-          setErrorMessage('Invalid role for the requested access.');
+          alert('Invalid role for the requested access.');
         } else if (status === 403) {
-          setErrorMessage('Your account is pending approval. Please wait for HR to approve your account.');
+          alert('Your account is pending approval. Please wait for HR to approve your account.');
         } else {
-          setErrorMessage('Invalid email or password');
+          alert('Invalid email or password');
         }
       } else {
-        setErrorMessage('Something went wrong. Please try again later.');
+        alert('Something went wrong. Please try again later.');
       }
+    }finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,6 +66,9 @@ const LoginPage = () => {
       alert('Please enter the OTP!');
       return;
     }
+
+    setIsVerifyingOtp(true);
+    setErrorOtp("");
 
     try {
       const response = await axios.post('http://127.0.0.1:5000/api/verify-otp', {
@@ -89,7 +97,9 @@ const LoginPage = () => {
           window.location.href = '/';
       }
     } catch (error) {
-      setErrorOtp('Invalid OTP');
+      alert('Invalid OTP');
+    }finally {
+      setIsVerifyingOtp(false);
     }
   };
 
@@ -152,8 +162,8 @@ const LoginPage = () => {
                 <a href="/forgot-password">Forgot Password?</a>
               </div>
 
-              <button className="login-button" onClick={handleLogin}>
-                Login
+              <button className="login-button" onClick={handleLogin} disabled={isLoading}>
+                {isLoading ? "Logging in..." : "Login"}
               </button>
             </>
           )}
@@ -173,8 +183,8 @@ const LoginPage = () => {
               {/* Display error message if OTP verification failed */}
               {errorOtp && <p className="error-message">{errorOtp}</p>}
 
-              <button className="login-button" onClick={handleOtpVerification}>
-                Verify OTP
+              <button className="login-button" onClick={handleOtpVerification} disabled={isVerifyingOtp}>
+                {isVerifyingOtp ? "Verifying..." : "Verify OTP"}
               </button>
             </>
           )}

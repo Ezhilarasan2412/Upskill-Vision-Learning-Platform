@@ -78,7 +78,7 @@ const CompletedCourses = () => {
       className="course-list-container"
       style={{
         background: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)', // Gradient background
-        backgroundImage: 'url("https://source.unsplash.com/1920x1080/?education,success")', // Educational themed image
+        backgroundImage: 'url("1.jpg")', // Educational themed image
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed', // Parallax effect
@@ -87,7 +87,7 @@ const CompletedCourses = () => {
         color: '#fff',
       }}
     >
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Completed Courses</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#fff' }}>Completed Courses</h2>
 
       <button className="back-button" onClick={handleBackButtonClick}>
         Back

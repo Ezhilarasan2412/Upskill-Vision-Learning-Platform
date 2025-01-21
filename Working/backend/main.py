@@ -1,12 +1,11 @@
 from flask import *
-from models import *
-from routes import  routes_blueprint
+from models import db
+from routes import main_blueprint
 from flask_cors import CORS
 from datetime import timedelta
 from flask_session import Session
 from flask_bcrypt import Bcrypt
-
-
+from flask_migrate import Migrate
 
 
 # Initialize the Flask app
@@ -27,18 +26,18 @@ Session(app)
 # Initialize SQLAlchemy with the app
 db.init_app(app)
 
+# Initialize Flask-Migrate for database migrations
+migrate = Migrate(app, db)
+
+
 # Register the blueprint for routes
-app.register_blueprint(routes_blueprint)
+app.register_blueprint(main_blueprint)
 
-# Create the database tables and insert initial data
-@app.before_request
-def setup_database():
-    db.create_all()
-    
+
 @app.route('/')
-
 def home():
     return render_template('index.html') 
+
 
 if __name__ == '__main__':
     app.run(debug=True)

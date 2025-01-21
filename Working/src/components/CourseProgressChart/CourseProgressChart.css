@@ -1,0 +1,22 @@
+/* styles.css */
+.chart-container {
+  width: 400px;
+  height: 400px;
+  margin: 20px auto; /* Center the chart horizontally */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border: 1px solid #ddd; /* Add a light border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  padding: 20px;
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333; /* Dark text for better visibility */
+}

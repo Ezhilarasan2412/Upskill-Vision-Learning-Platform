@@ -1,37 +1,28 @@
-html, body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  height: 100%; 
-  background-image: url('../../images/1.jpg');
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed;
-  overflow-y: auto; 
-}
-
 .signup-container {
-  max-width: 500px;
-  margin: 50px auto; 
-  padding: 30px;
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Keeps form at the top */
+  min-height: 100vh;
+  background-image: url('../../images/9.jpg');
+  background-size: cover; /* Ensures the image fits inside the container without cropping */
+  background-position: center;
+  background-repeat: no-repeat; /* Prevents tiling */
+  background-attachment: fixed; /* Keeps the background fixed during scrolling */
+  overflow-y: auto; /* Allows scrolling for long content */
+  padding: 20px 0;
 }
 
 .signup-box {
   width: 500px;
   background: rgba(255, 255, 255, 0.4);
   padding: 20px;
-  border-radius: 15px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   box-sizing: border-box;
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5); 
-  margin-top: 20px; 
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
-
 .signup-header {
   text-align: center;
   margin-bottom: 20px;
@@ -73,13 +64,13 @@ html, body {
   font-size: 14px;
 }
 
-.submit-button {
+.signup-submit-button {
   width: 50%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 15px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffff !important;
+  color: #000000 !important;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
@@ -88,33 +79,33 @@ html, body {
   display: block;
 }
 
-.submit-button:hover {
+.signup-submit-button:hover {
   opacity: 0.6;
   text-decoration: underline;
 }
 
-.error-message {
+.signup-error-message {
   color: #ff0000;
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
 }
 
-.password-criteria ul {
+.signup-password-criteria ul {
   list-style-type: none;
   padding: 0;
 }
 
-.password-criteria li {
+.signup-password-criteria li {
   font-size: 12px;
   color: #666;
 }
 
-.password-criteria li.valid {
+.signup-password-criteria li.valid {
   color: green;
 }
 
-.password-criteria li.invalid {
+.signup-password-criteria li.invalid {
   color: red;
 }
 

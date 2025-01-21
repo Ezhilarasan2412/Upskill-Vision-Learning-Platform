@@ -35,7 +35,6 @@ function QuizAttempt() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Get the user ID dynamically from localStorage (or your global state/context)
     const userId = localStorage.getItem("user_id");
 
     if (!userId) {
@@ -77,7 +76,6 @@ function QuizAttempt() {
                   name={`question-${question.question_id}`}
                   value={answer.answer_text}
                   onChange={() => handleAnswerChange(question.question_id, answer.answer_text)}
-                  required
                 />
                 <label>{answer.answer_text}</label>
               </div>

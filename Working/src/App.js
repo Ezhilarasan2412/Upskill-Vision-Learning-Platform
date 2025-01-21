@@ -25,6 +25,7 @@ import QuestionForm from './components/Quiz/QuestionForm';
 import QuizDetails from './components/Quiz/QuizDetails';
 import PerformanceDashboard from './components/Performance-Dashboard/Performance-Dashboard'
 import QuizAttempt from "./components/Quiz/QuizAttempt";
+import QuizPerformance from './components/Quiz/QuizPerformance'; 
 
 
 
@@ -92,6 +93,9 @@ const App = () => {
         <Route path="/performance-dashboard" element={<PerformanceDashboard />} />
 
         <Route path="/quiz/:quizId/:moduleId/attempt" element={<QuizAttempt />} />
+
+        <Route path="/quiz-performance" element={<QuizPerformance  />} />
+
 
       </Routes>
     </Router>

@@ -52,7 +52,7 @@ const Enrolled = () => {
   };
 
   const handleBackButtonClick = () => {
-    window.history.back(); // Go to the previous page
+    navigate(`/participant-dashboard`);
   };
 
   if (loading) return <div>Loading enrolled courses...</div>;
@@ -92,7 +92,7 @@ const Enrolled = () => {
     <div
       style={{
         background: 'linear-gradient(to right, #6a11cb, #2575fc)',
-        backgroundImage: 'url("https://t4.ftcdn.net/jpg/04/53/63/07/360_F_453630770_N9UkWkDVZGC9AA91ohlKhdjDMMNhBQbU.jpg")',
+        backgroundImage: 'url("2.jpg")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

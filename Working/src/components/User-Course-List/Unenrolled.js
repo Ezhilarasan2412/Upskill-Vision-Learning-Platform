@@ -132,7 +132,7 @@ const Unenrolled = () => {
       className="course-list-container"
       style={{
         background: 'linear-gradient(to right, #f12711, #f5af19)', // Gradient background
-        backgroundImage: 'url("https://source.unsplash.com/1920x1080/?learning")', // Image background
+        backgroundImage: 'url("1.jpg")', // Image background
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed', // Fixed background effect
@@ -141,7 +141,7 @@ const Unenrolled = () => {
         color: '#fff', // Ensure text is readable on a dark background
       }}
     >
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Unenrolled Courses</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#fff' }}>Unenrolled Courses</h2>
 
       <button className="back-button" onClick={handleBackButtonClick}>
         Back
