@@ -1,0 +1,186 @@
+/* Set the white background for the entire page with an image */
+.department-management-page-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background-image: url('../../images/3.jpg');
+    background-size: cover; /* Ensures the image fits inside the container without cropping */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Keeps the background fixed during scrolling */
+    overflow-y: auto; /* Allows scrolling for long content */
+  }
+  
+  /* Styling for the back button */
+  .department-management-page-back-button {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .department-management-page-back-button:hover {
+    background: #17760e9d;
+  }
+  
+  .department-management-page-error-message {
+    color: red;
+    margin: 10px 0;
+  }
+  
+  /* Search Bar Styles */
+  .department-management-page-search {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .department-management-page-search-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #f7f7f7;
+    transition: border-color 0.3s ease;
+  }
+  
+  .department-management-page-search-input:focus {
+    border-color: #007bff;
+  }
+  
+  .department-management-page-departments-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Centers cards in the container */
+    margin-top: 20px;
+  }
+  
+  .department-management-page-department-card {
+    background-color: #fff;  /* White background for the department card */
+    border: 2px solid #555; /* Subtle border */
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 20px;
+    width: 300px; /* Fixed width for consistency */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Left-align text for readability */
+    color: #333; /* Dark text color for better contrast */
+  }
+  
+  .department-management-page-department-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .department-management-page-button-row {
+    display: flex;
+    flex-wrap: wrap;  /* Ensures buttons wrap to next line */
+    gap: 20px;
+    justify-content: center; /* Centers buttons in the container */
+    margin-top: 10px;
+  }
+  
+  .department-management-page-blue-button,
+.department-management-page-red-button {
+    padding: 10px 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: calc(50% - 10px); /* Each button takes up 50% minus gap */
+    max-width: 200px; /* Prevents buttons from becoming too wide */
+    box-sizing: border-box; /* Ensures padding is included in the width calculation */
+}
+  
+  .department-management-page-blue-button:hover {
+    background: #0056b3;
+  }
+
+  .department-management-page-red-button {
+    background-color: red;
+}
+  
+  .department-management-page-red-button:hover {
+    background-color: darkred;
+  }
+  
+  /* Header */
+  .department-management-page-header {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.0em;
+    margin: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Create New Department Button */
+  .department-management-page-create-button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin-top: 30px;
+    width: 250px;
+    margin: 30px auto;
+  }
+  
+  .department-management-page-create-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .department-management-page-header {
+      font-size: 1.6rem;
+    }
+  
+    .department-management-page-back-button {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+  
+    .department-management-page-blue-button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  
+    .department-management-page-red-button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  
+    .department-management-page-search-input {
+      font-size: 1rem;
+    }
+  
+    .department-management-page-departments-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+  

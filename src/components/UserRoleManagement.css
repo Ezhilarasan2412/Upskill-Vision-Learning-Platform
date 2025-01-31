@@ -1,0 +1,114 @@
+/* Scoped to the UserRoleManagement component */
+.UserRoleManagement {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 650px;
+  margin: 40px auto;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+.UserRoleManagement h1 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* Select Dropdowns */
+.UserRoleManagement label {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 500;
+}
+
+.UserRoleManagement select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 25px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f7f7f7;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.UserRoleManagement select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+.UserRoleManagement option {
+  font-size: 1rem;
+  padding: 12px;
+}
+
+/* Button */
+.UserRoleManagement button {
+  background-color: #007bff;
+  color: white;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: 600;
+}
+
+.UserRoleManagement button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.UserRoleManagement button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Message */
+.UserRoleManagement p {
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: #e7f7ff;
+  border: 1px solid #007bff;
+}
+
+.UserRoleManagement p.error {
+  background-color: #ffe5e5;
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.UserRoleManagement p.success {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #28a745;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  .UserRoleManagement {
+    padding: 30px;
+  }
+
+  .UserRoleManagement h1 {
+    font-size: 1.7rem;
+  }
+
+  .UserRoleManagement select,
+  .UserRoleManagement button {
+    font-size: 1.1rem;
+  }
+}
