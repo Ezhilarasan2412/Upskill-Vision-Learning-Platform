@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import "./ParticipantPieChart.css";
+import { useNavigate} from 'react-router-dom';
+import "./ManagerParticipantPieChart.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -9,17 +10,25 @@ const ParticipantPieChartPage = () => {
   const [participantData, setParticipantData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const managerId = localStorage.getItem("user_id"); // Retrieve manager_id from localStorage
+  const navigate = useNavigate(); // Use React Router's navigate
 
   useEffect(() => {
     const fetchParticipantCourseStatus = async () => {
+      if (!managerId) {
+        setError("Manager ID is missing. Please log in again.");
+        return;
+      }
+
       setLoading(true);
       setError(null);
-      const apiUrl = "http://localhost:5000/api/participants/course-status";
+
+      const apiUrl = `http://localhost:5000/api/manager/participants/course-status?manager_id=${managerId}`;
 
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
         console.log("✅ API Response:", data);
@@ -34,11 +43,18 @@ const ParticipantPieChartPage = () => {
     };
 
     fetchParticipantCourseStatus();
-  }, []);
+  }, [managerId]); // Depend on managerId to re-fetch data if it changes
+
+  const handleBackButtonClick = () => {
+    navigate('/manager-dashboard');
+  };
 
   return (
     <div className="participant-piechart-page">
-      <h1>Participants' Active vs Completed Courses</h1>
+      <h1>Active vs Completed Courses</h1>
+      <button className="user-progress-page-back-button" onClick={handleBackButtonClick}>
+          Back
+        </button>
       {loading && <p>Loading participant data...</p>}
       {error && <p className="error">{error}</p>}
       {participantData.length > 0 ? (

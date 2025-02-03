@@ -91,7 +91,7 @@ function UserRoleManagement() {
     <div className="UserRoleManagement">
       <h1>Update User Role</h1>
 
-      <button className="user-progress-page-back-button" onClick={handleBackButtonClick}>
+      <button className="user-role-management-back-button" onClick={handleBackButtonClick}>
           Back
         </button>
 
@@ -125,7 +125,7 @@ function UserRoleManagement() {
         </select>
       </div>
 
-      <button onClick={updateRole} disabled={!selectedUser || !selectedRole}>
+      <button className="submit-button" onClick={updateRole} disabled={!selectedUser || !selectedRole}>
         Update Role
       </button>
 

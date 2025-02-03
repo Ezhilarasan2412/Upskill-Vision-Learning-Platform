@@ -6,7 +6,7 @@ import './ChangeManager.css';
 const ChangeManager = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { departmentId, userType } = location.state || {};
+  const { departmentId } = location.state || {};
 
   // State for department and manager list
   const [department, setDepartment] = useState(null);
@@ -78,7 +78,7 @@ const ChangeManager = () => {
 
   // Back button handler
   const handleBack = () => {
-    navigate(userType === 'hr' ? '/hr-dashboard' : '/instructor-dashboard');
+    navigate('/department-management-page');
   };
 
   return (

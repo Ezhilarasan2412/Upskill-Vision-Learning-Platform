@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./FilterPerformance.css";
+import {useNavigate} from 'react-router-dom'; // For navigation
+import "./HRFilterPerformance.css";
 
 const FilterPerformancePage = () => {
   const [courseName, setCourseName] = useState("");
@@ -8,6 +9,7 @@ const FilterPerformancePage = () => {
   const [performanceData, setPerformanceData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Use React Router's navigate
 
   const fetchPerformanceData = async () => {
     setLoading(true);
@@ -18,7 +20,7 @@ const FilterPerformancePage = () => {
     if (startDate) queryParams.append("start_date", new Date(startDate).toISOString().split("T")[0]);
     if (endDate) queryParams.append("end_date", new Date(endDate).toISOString().split("T")[0]);
 
-    const apiUrl = `http://localhost:5000/api/performance?${queryParams.toString()}`;
+    const apiUrl = `http://localhost:5000/api/hr/performance?${queryParams.toString()}`;
 
     try {
       const response = await fetch(apiUrl);
@@ -34,9 +36,18 @@ const FilterPerformancePage = () => {
     }
   };
 
+  const handleBackButtonClick = () => {
+    navigate("/hr-dashboard");
+  };
+
   return (
     <div className="filter-performance-page">
       <h1>Filter Performance</h1>
+      
+      <button className="user-role-management-back-button" onClick={handleBackButtonClick}>
+          Back
+        </button>
+
       <div className="filter-section">
         <input type="text" placeholder="Course Name" value={courseName} onChange={(e) => setCourseName(e.target.value)} />
         <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />

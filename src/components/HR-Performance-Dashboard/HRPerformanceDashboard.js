@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // For navigation
-import './Performance-Dashboard.css';
+import { useNavigate,useLocation } from 'react-router-dom'; // For navigation
+import './HRPerformanceDashboard.css';
 
 const UserProgressPage = () => {
   const [loading, setLoading] = useState(true);
@@ -9,6 +9,9 @@ const UserProgressPage = () => {
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate(); // Use React Router's navigate
+  const location = useLocation();
+  const userType = location.state?.userType || "hr";
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -32,8 +35,7 @@ const UserProgressPage = () => {
   };
 
   const handleBackButtonClick = () => {
-    navigate(`/hr-dashboard`);
-  };
+    navigate(userType === "hr" ? "/hr-dashboard" : "/instructor-dashboard");  };
 
   const handleSearchChange = (e) => {
     const value = e.target.value;

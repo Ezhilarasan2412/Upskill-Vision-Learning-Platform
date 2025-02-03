@@ -90,8 +90,8 @@ const DepartmentManagementPage = () => {
       <button className="department-management-page-back-button" onClick={handleBack}>Back</button>
 
       {/* Search Bar */}
-      <div className="department-management-page-search">
-        <input
+      <div className="department-management-page-search-container">
+        <input 
           type="text"
           value={searchQuery}
           onChange={handleSearch}
@@ -99,8 +99,9 @@ const DepartmentManagementPage = () => {
           className="department-management-page-search-input"
         />
       </div>
+      <div className="department-management-page-create-button-container">
       <button onClick={handleCreateDepartment} className="department-management-page-create-button">Create New Department</button>
-
+    </div>
       {error && <div className="department-management-page-error-message">{error}</div>}
 
       {filteredDepartments.length === 0 ? (

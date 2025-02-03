@@ -92,7 +92,7 @@ function UserProgress() {
 
 
   const handleBackButtonClick = () => {
-    navigate(userType === "hr" ? "/hr-dashboard" : "/participant-dashboard");
+    navigate(userType === "hr" ? "/hr-dashboard" : userType === "manager" ? "/manager-dashboard" : "/participant-dashboard");
   };
 
   return (

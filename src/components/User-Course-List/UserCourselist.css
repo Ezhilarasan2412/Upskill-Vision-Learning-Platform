@@ -15,15 +15,18 @@
 
 /* Header styling */
 .user-course-list-header {
-  background-color: #ffffff; /* Dark blue background */
-  color: #000000; /* White text */
+  background-color: #ffffff; /* White background */
+  color: #000000; /* Black text */
   text-align: center;
-  padding: 20px; /* Adjust padding as needed */
-  padding-left: 100px; /* Add space on the left side */
-  font-size: 2.0em; /* Adjust font size */
-  margin: 0; /* Remove default margin */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional shadow for better definition */
+  padding: 10px; /* Reduced padding to make the header smaller */
+  padding-left: 50px;
+  font-size: 1.5em;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: -20px; /* Moves the header 20px upwards */
 }
+
 
 .user-course-list-back-button {
   background-color: #007bff;
@@ -34,7 +37,7 @@
   cursor: pointer;
   border-radius: 5px;
   position: fixed; /* Fix the button in place */
-  top: 35px; /* Distance from the top */
+  top: 1px; /* Distance from the top */
   left: 35px; /* Distance from the left */
   z-index: 1000; /* Ensure it stays above other content */
   display: inline-block; /* Ensure button takes only its content's size */

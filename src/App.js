@@ -4,7 +4,7 @@ import Login from './components/Login/Login';
 import ForgotPasswordPage from './components/Forgot-Password/ForgotPassword';
 import ResetPasswordPage from './components/Reset-Password/ResetPassword'; 
 import SignUp from './components/Signup/SignUp';
-import Course from './components/Create-Course/Course';
+import CreateCourse from './components/Create-Course/Create-Course';
 import HRDashboard from './components/HR-Dashboard/HR-Dashboard';
 import ManagerDashboard from './components/Manager-Dashboard/Manager-Dashboard';
 import InstructorDashboard from './components/Instructor-Dashboard/Instructor-Dashboard';
@@ -23,19 +23,25 @@ import AddResource from './components/Edit-Course/AddResource';
 import QuizForm from './components/Quiz/QuizForm';
 import QuestionForm from './components/Quiz/QuestionForm';
 import QuizDetails from './components/Quiz/QuizDetails';
-import PerformanceDashboard from './components/Performance-Dashboard/Performance-Dashboard'
 import QuizAttempt from "./components/Quiz/QuizAttempt";
 import UserProgress from './components/UserProgress/UserProgress';
 import UserProgressPage from './components/UserProgress/UserProgressPage';
-import UserRoleManagement from "./components/UserRoleManagement";
-import DepartmentManagementPage from './components/DepartmentManagement/DepartmentManagementPage';
-import CreateDepartment from './components/DepartmentManagement/CreateDepartment';
-import ChangeManager from './components/DepartmentManagement/ChangeManager';
-import PerformanceDashboardManager from './components/Performance-Dashboard-Manager/PerformanceDashboardManager';
-import ViewDepartment from './components/ViewDepartment';
-import ParticipantPieChart from './components/ParticipantPieChart';
-import FilterPerformance from './components/FilterPerformance';
-import ChangeParticipants from './components/DepartmentManagement/ChangeParticipants';
+import UserRoleManagement from "./components/UserRoleManagerment/UserRoleManagement";
+import DepartmentManagementPage from './components/Manage-Deparment/DepartmentManagementPage';
+import CreateDepartment from './components/Manage-Deparment/CreateDepartment';
+import ChangeManager from './components/Manage-Deparment/ChangeManager';
+import ViewDepartment from './components/Manage-Deparment/ViewDepartment';
+import ChangeParticipants from './components/Manage-Deparment/ChangeParticipants';
+import ManagerPerformanceDashboard from './components/Manager-Performance-Dashboard/ManagerPerformanceDashboard';
+import ManagerParticipantPieChart from './components/Manager-Performance-Dashboard/ManagerParticipantPieChart';
+import ManagerFilterPerformance from './components/Manager-Performance-Dashboard/ManagerFilterPerformance';
+import ManagerLeaderboardPage from './components/Manager-Performance-Dashboard/ManagerLeaderboardPage';
+import HRFilterPerformance from './components/HR-Performance-Dashboard/HRFilterPerformance';
+import HRLeaderboardPage from './components/HR-Performance-Dashboard/HRLeaderboardPage';
+import HRParticipantPieChart from './components/HR-Performance-Dashboard/HRParticipantPieChart';
+import HRPerformanceDashboard from './components/HR-Performance-Dashboard/HRPerformanceDashboard';
+
+
 
 
 
@@ -52,7 +58,7 @@ const App = () => {
         
         <Route path="/signup" element={<SignUp />} /> 
 
-        <Route path="/courses" element={<Course />} /> 
+        <Route path="/courses" element={<CreateCourse />} /> 
 
         <Route path="/hr-dashboard" element={<HRDashboard />} />
 
@@ -94,8 +100,6 @@ const App = () => {
 
         <Route path="/quiz/:quizId/:totalScore" element={<QuestionForm />} />
 
-        <Route path="/performance-dashboard" element={<PerformanceDashboard />} />
-
         <Route path="/quiz/:quizId/:moduleId/attempt" element={<QuizAttempt />} />
 
         <Route path="/user-progress/:courseId/:userId" element={<UserProgress />} />
@@ -114,11 +118,22 @@ const App = () => {
         
         <Route path="/change-participants" element={<ChangeParticipants />} />
 
-        <Route path="/performance-dashboard-manager" element={<PerformanceDashboardManager />} />
+        <Route path="/manager-performance-dashboard" element={<ManagerPerformanceDashboard />} />
 
-        <Route path="/participant-pie-chart" element={<ParticipantPieChart />} />
+        <Route path="/manager-participant-pie-chart" element={<ManagerParticipantPieChart />} />
 
-        <Route path="/filter-performance" element={<FilterPerformance />} />
+        <Route path="/manager-filter-performance" element={<ManagerFilterPerformance />} />
+
+        <Route path="/manager-leaderboard-page" element={<ManagerLeaderboardPage />} />
+
+
+        <Route path="/hr-performance-dashboard" element={<HRPerformanceDashboard />} />
+
+        <Route path="/hr-participant-pie-chart" element={<HRParticipantPieChart />} />
+
+        <Route path="/hr-filter-performance" element={<HRFilterPerformance />} />
+
+        <Route path="/hr-leaderboard-page" element={<HRLeaderboardPage />} />
 
       </Routes>
     </Router>

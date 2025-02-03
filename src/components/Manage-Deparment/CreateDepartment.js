@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./CreateDepartment.css";
+
 
 const DepartmentManagement = () => {
   const [managers, setManagers] = useState([]);
@@ -8,6 +10,7 @@ const DepartmentManagement = () => {
   const [selectedManager, setSelectedManager] = useState("");
   const [participants, setParticipants] = useState([]);
   const [selectedParticipants, setSelectedParticipants] = useState([]);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,9 +79,15 @@ const DepartmentManagement = () => {
     }
   };
 
+  // Back button handler
+  const handleBack = () => {
+    navigate('/department-management-page');
+  };
+
   return (
     <div className="container mx-auto p-4">
       <h3 className="text-xl font-bold mb-4">Create Department</h3>
+      <button className="change-manager-page-back-button" onClick={handleBack}>Back</button>
       <input
         type="text"
         placeholder="Department Name"
@@ -99,21 +108,33 @@ const DepartmentManagement = () => {
         ))}
       </select>
       
-      <h3 className="text-xl font-bold mb-4">Assign Participants</h3>
-      <div>
-        {participants.map((participant) => (
-          <div key={participant.user_id} className="flex items-center mb-2">
-            <input
-              type="checkbox"
-              value={participant.user_id}
-              checked={selectedParticipants.includes(participant.user_id)}
-              onChange={() => handleParticipantSelection(participant.user_id)}
-              className="mr-2"
-            />
-            <span>{participant.first_name} {participant.last_name}</span>
+      <h3>Assign Participants</h3>
+      <div className="dropdown-container">
+        <button
+          className="dropdown-button"
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+        >Select Participants
+        </button>
+        {dropdownOpen && (
+          <div className="dropdown-menu">
+            {participants.map((participant) => (
+              <div key={participant.user_id} className="dropdown-item">
+                <input
+                  type="checkbox"
+                  id={`participant-${participant.user_id}`}
+                  checked={selectedParticipants.includes(participant.user_id)}
+                  onChange={() => handleParticipantSelection(participant.user_id)}
+                />
+                <label htmlFor={`participant-${participant.user_id}`}>
+                  {participant.first_name} {participant.last_name}
+                </label>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
+
+
 
       <button onClick={createDepartment} className="bg-blue-500 text-white p-2 rounded">
         Create Department

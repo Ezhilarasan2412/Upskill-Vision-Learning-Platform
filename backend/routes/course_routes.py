@@ -636,3 +636,63 @@ def fetch_detailed_course(course_id):
         'description': course.description,
         'modules': module_data
     }), 200
+
+
+
+@course_blueprint.route('/api/review', methods=['POST'])
+def submit_course_review():
+    # Get data from request
+    data = request.get_json()
+    user_id = data.get('user_id')
+    course_id = data.get('course_id')
+    rating = data.get('rating')
+    review_text = data.get('review_text')
+
+    # Validate the input data
+    if not user_id or not course_id or not rating:
+        return jsonify({'error': 'user_id, course_id, and rating are required.'}), 400
+
+    # Validate that user is enrolled in the course
+    enrolled_course = db.session.query(UserCourse).filter_by(user_id=user_id, course_id=course_id, status='enrolled').first()
+    if not enrolled_course:
+        return jsonify({'error': 'User is not enrolled in the specified course.'}), 400
+
+    # Create a new course review
+    new_review = CourseReview(
+        course_id=course_id,
+        user_id=user_id,
+        rating=rating,
+        review_text=review_text
+    )
+
+    try:
+        db.session.add(new_review)
+        db.session.commit()
+        return jsonify({'message': 'Review submitted successfully!'}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+
+@course_blueprint.route('/api/course-reviews', methods=['GET'])
+def get_course_reviews():
+    course_id = request.args.get('course_id', type=int)
+
+    if not course_id:
+        return jsonify({'error': 'Course ID is required.'}), 400
+
+    # Fetch reviews for the specified course
+    reviews = db.session.query(CourseReview, User.first_name, User.last_name).join(User, User.user_id == CourseReview.user_id).filter(CourseReview.course_id == course_id).all()
+
+    if not reviews:
+        return jsonify({'message': 'No reviews found for this course.'}), 404
+
+    # Format the reviews
+    review_list = [{
+        'user_name': f"{review.first_name} {review.last_name}",
+        'rating': review.CourseReview.rating,
+        'review_text': review.CourseReview.review_text,
+        'created_at': review.CourseReview.created_at.strftime('%Y-%m-%d %H:%M:%S')
+    } for review in reviews]
+
+    return jsonify(review_list), 200

@@ -313,7 +313,8 @@ def get_pending_users():
             'first_name': user.first_name,
             'last_name': user.last_name,
             'email': user.email,
-            'role_id': user.role_id
+            'role_id': user.role_id,
+            'role_name': user.role.role_name  # Assuming a relationship exists
         }
         for user in pending_users
     ]

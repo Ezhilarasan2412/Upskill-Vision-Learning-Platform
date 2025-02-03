@@ -13,7 +13,7 @@ const InstructorDashboard = () => {
         <h2>Instructor Dashboard</h2>
         <ul className="sidebar-menu">
 
-          <li onClick={() => navigate('/performance-dashboard', { state: { userType: 'instructor' } })}>
+          <li onClick={() => navigate('/hr-performance-dashboard', { state: { userType: 'instructor' } })}>
             User Performance
           </li>
 

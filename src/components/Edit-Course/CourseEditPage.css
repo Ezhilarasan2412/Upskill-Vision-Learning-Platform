@@ -48,6 +48,9 @@
   max-width: 600px;
   margin-top: 10px;
   margin-bottom: 20px;
+  margin: 10px auto 20px auto; 
+  
+
 }
 
 .course-edit-page-search-input {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './PerformanceDashboardManager.css';
+import './ManagerPerformanceDashboard.css';
 
 const PerformanceDashboardManager = () => {
   const [loading, setLoading] = useState(true);
@@ -46,7 +46,7 @@ const PerformanceDashboardManager = () => {
   }, [navigate]);
 
   const handleUserClick = (userId) => {
-    navigate(`/user-progress-page/${userId}`); // Navigate to the user progress page
+    navigate(`/user-progress-page/${userId}`, { state: { userType: 'manager' } }); // Navigate to the user progress page
   };
 
   const handleBackButtonClick = () => {
