@@ -21,7 +21,7 @@ const ParticipantDashboard = () => {
     <div className="dashboard-container">
       {/* Sidebar */}
       <aside className="sidebar">
-        <h2>Participant Dashboard</h2>
+        <h2 style={{ color: "white" }}>Participant Dashboard</h2>
         <ul className="sidebar-menu">
           <li onClick={() => navigate('/user-course-list')}>Courses List</li>
           <li onClick={() => navigate('/enrolled')}>Enrolled</li>
@@ -35,7 +35,7 @@ const ParticipantDashboard = () => {
       {/* Main Content */}
       <div className="main-content">
         <header className="main-header">
-          <h1>Welcome, Participant!</h1>
+          <h1 style={{ color: "black"}}>Welcome, Participant!</h1>
         </header>
 
 

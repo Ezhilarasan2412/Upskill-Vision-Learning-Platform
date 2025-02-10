@@ -84,7 +84,7 @@ const ChangeManager = () => {
   return (
     <div className="change-manager-page-container">
       <h1 className="change-manager-page-header">Change Department Manager</h1>
-      <button className="change-manager-page-back-button" onClick={handleBack}>Back</button>
+      <button className="change-manager-page-back-button" onClick={handleBack}>← Back</button>
 
       {error && <div className="change-manager-page-error-message">{error}</div>}
       {successMessage && <div className="change-manager-page-success-message">{successMessage}</div>}

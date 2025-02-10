@@ -3,14 +3,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./CreateDepartment.css";
 
-
 const DepartmentManagement = () => {
   const [managers, setManagers] = useState([]);
   const [departmentName, setDepartmentName] = useState("");
   const [selectedManager, setSelectedManager] = useState("");
   const [participants, setParticipants] = useState([]);
   const [selectedParticipants, setSelectedParticipants] = useState([]);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -81,22 +79,25 @@ const DepartmentManagement = () => {
 
   // Back button handler
   const handleBack = () => {
-    navigate('/department-management-page');
+    navigate("/department-management-page");
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <h3 className="text-xl font-bold mb-4">Create Department</h3>
-      <button className="change-manager-page-back-button" onClick={handleBack}>Back</button>
+    <div className="create-department-wrapper">
+    <div className="create-department-container">
+      <h3 className="create-department-header">Create Department</h3> 
+      <button className="create-department-back-button" onClick={handleBack}>← Back</button>     
+      
       <input
         type="text"
         placeholder="Department Name"
-        className="border p-2 w-full mb-2"
+        className="create-department-input"
         value={departmentName}
         onChange={(e) => setDepartmentName(e.target.value)}
       />
+      
       <select
-        className="border p-2 w-full mb-2"
+        className="create-department-select"
         value={selectedManager}
         onChange={(e) => setSelectedManager(e.target.value)}
       >
@@ -108,37 +109,31 @@ const DepartmentManagement = () => {
         ))}
       </select>
       
-      <h3>Assign Participants</h3>
-      <div className="dropdown-container">
-        <button
-          className="dropdown-button"
-          onClick={() => setDropdownOpen(!dropdownOpen)}
-        >Select Participants
-        </button>
-        {dropdownOpen && (
-          <div className="dropdown-menu">
-            {participants.map((participant) => (
-              <div key={participant.user_id} className="dropdown-item">
-                <input
-                  type="checkbox"
-                  id={`participant-${participant.user_id}`}
-                  checked={selectedParticipants.includes(participant.user_id)}
-                  onChange={() => handleParticipantSelection(participant.user_id)}
-                />
-                <label htmlFor={`participant-${participant.user_id}`}>
-                  {participant.first_name} {participant.last_name}
-                </label>
-              </div>
-            ))}
-          </div>
+      <h3 className="create-department-subheader">Assign Participants</h3>
+      <div className="create-department-participant-list">
+        {participants.length > 0 ? (
+          participants.map((participant) => (
+            <div key={participant.user_id} className="create-department-participant-item">
+              <input
+                type="checkbox"
+                id={`participant-${participant.user_id}`}
+                checked={selectedParticipants.includes(participant.user_id)}
+                onChange={() => handleParticipantSelection(participant.user_id)}
+              />
+              <label htmlFor={`participant-${participant.user_id}`}>
+                {participant.first_name} {participant.last_name}
+              </label>
+            </div>
+          ))
+        ) : (
+          <p className="create-department-no-participants">No participants available</p>
         )}
       </div>
 
-
-
-      <button onClick={createDepartment} className="bg-blue-500 text-white p-2 rounded">
+      <button onClick={createDepartment} className="create-department-button">
         Create Department
       </button>
+    </div>
     </div>
   );
 };

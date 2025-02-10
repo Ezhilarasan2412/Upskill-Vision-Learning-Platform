@@ -692,7 +692,7 @@ def get_course_reviews():
         'user_name': f"{review.first_name} {review.last_name}",
         'rating': review.CourseReview.rating,
         'review_text': review.CourseReview.review_text,
-        'created_at': review.CourseReview.created_at.strftime('%Y-%m-%d %H:%M:%S')
+        'created_at': review.CourseReview.created_at.strftime('%Y-%m-%d')
     } for review in reviews]
 
     return jsonify(review_list), 200

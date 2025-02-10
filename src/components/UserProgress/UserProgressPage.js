@@ -43,12 +43,20 @@ const UserProgressPage = () => {
   }, [userId]);
 
   const handleCourseDetails = (courseId) => {
-    navigate(`/user-progress/${courseId}/${userId}`,{ state: { userType: 'manager'  } }); // Navigate to course details page
+    navigate(`/user-progress/${courseId}/${userId}`,{ state: { userType } }); // Navigate to course details page
   };
 
   const handleBackButtonClick = () => {
-    navigate(userType === "hr" ? "/hr-dashboard" : userType === "manager" ? "/manager-dashboard" : "/participant-dashboard");
-  };
+    navigate(
+      userType === "hr" 
+        ? "/hr-dashboard" 
+        : userType === "manager" 
+        ? "/manager-dashboard" 
+        : userType === "instructor" 
+        ? "/instructor-dashboard" 
+        : "/participant-dashboard"
+    );
+      };
 
   if (loading) return <div>Loading enrolled courses...</div>;
   if (error) return <div className="error">Error: {error}</div>;

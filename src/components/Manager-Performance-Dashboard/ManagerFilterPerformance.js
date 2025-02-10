@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./ManagerFilterPerformance.css";
 
 const FilterPerformancePage = () => {
@@ -9,9 +9,9 @@ const FilterPerformancePage = () => {
   const [performanceData, setPerformanceData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Use React Router's navigate
+  const navigate = useNavigate();
 
-  const managerId = localStorage.getItem("user_id"); // Retrieve manager_id from localStorage
+  const managerId = localStorage.getItem("user_id");
 
   const fetchPerformanceData = async () => {
     if (!managerId) {
@@ -23,7 +23,7 @@ const FilterPerformancePage = () => {
     setError(null);
 
     let queryParams = new URLSearchParams();
-    queryParams.append("manager_id", managerId); // ✅ Add manager_id to the request
+    queryParams.append("manager_id", managerId);
 
     if (courseName) queryParams.append("course", courseName.trim());
     if (startDate) queryParams.append("start_date", new Date(startDate).toISOString().split("T")[0]);
@@ -34,7 +34,7 @@ const FilterPerformancePage = () => {
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
       setPerformanceData(Array.isArray(data) ? data : []);
@@ -51,56 +51,51 @@ const FilterPerformancePage = () => {
 
   return (
     <div className="filter-performance-page">
-      <h1>Filter Performance</h1>
-      <button className="user-progress-page-back-button" onClick={handleBackButtonClick}>
-          Back
-        </button>
-      <div className="filter-section">
-        <input 
-          type="text" 
-          placeholder="Course Name" 
-          value={courseName} 
-          onChange={(e) => setCourseName(e.target.value)} 
-        />
-        <input 
-          type="date" 
-          value={startDate} 
-          onChange={(e) => setStartDate(e.target.value)} 
-        />
-        <input 
-          type="date" 
-          value={endDate} 
-          onChange={(e) => setEndDate(e.target.value)} 
-        />
-        <button onClick={fetchPerformanceData}>Apply Filter</button>
+      <div className="filter-header">
+        <h1>Filter Performance</h1>
+        <button className="back-button" onClick={handleBackButtonClick}>Back</button>
       </div>
-      {loading && <p>Loading performance data...</p>}
+
+      <div className="filter-section">
+        <input
+          type="text"
+          placeholder="Course Name"
+          value={courseName}
+          onChange={(e) => setCourseName(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="date"
+          value={startDate}
+          onChange={(e) => setStartDate(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="date"
+          value={endDate}
+          onChange={(e) => setEndDate(e.target.value)}
+          className="input-field"
+        />
+        <button className="apply-button" onClick={fetchPerformanceData}>Apply Filter</button>
+      </div>
+
+      {loading && <div className="loading-spinner"></div>}
       {error && <p className="error">{error}</p>}
+
       {performanceData.length > 0 ? (
-        <table className="performance-table">
-          <thead>
-            <tr>
-              <th>Course Name</th>
-              <th>Description</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Enrollment Count</th>
-            </tr>
-          </thead>
-          <tbody>
-            {performanceData.map((course, index) => (
-              <tr key={index}>
-                <td>{course.course_name || "N/A"}</td>
-                <td>{course.description || "N/A"}</td>
-                <td>{course.start_date || "N/A"}</td>
-                <td>{course.end_date || "N/A"}</td>
-                <td>{course.enrollment_count || 0}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="performance-cards">
+          {performanceData.map((course, index) => (
+            <div key={index} className="performance-card">
+              <h3>{course.course_name || "N/A"}</h3>
+              <p><strong>Description:</strong> {course.description || "No description available."}</p>
+              <p><strong>Start Date:</strong> {course.start_date || "N/A"}</p>
+              <p><strong>End Date:</strong> {course.end_date || "N/A"}</p>
+              <p><strong>Enrollment Count:</strong> {course.enrollment_count || 0}</p>
+            </div>
+          ))}
+        </div>
       ) : (
-        !loading && <p>No results found</p>
+        !loading && <p>No results found.</p>
       )}
     </div>
   );

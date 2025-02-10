@@ -40,6 +40,7 @@ import HRFilterPerformance from './components/HR-Performance-Dashboard/HRFilterP
 import HRLeaderboardPage from './components/HR-Performance-Dashboard/HRLeaderboardPage';
 import HRParticipantPieChart from './components/HR-Performance-Dashboard/HRParticipantPieChart';
 import HRPerformanceDashboard from './components/HR-Performance-Dashboard/HRPerformanceDashboard';
+import HRCourseReview from './components/HR-Performance-Dashboard/HRCourseReview'
 
 
 
@@ -134,6 +135,8 @@ const App = () => {
         <Route path="/hr-filter-performance" element={<HRFilterPerformance />} />
 
         <Route path="/hr-leaderboard-page" element={<HRLeaderboardPage />} />
+
+        <Route path="/hr-course-review" element={<HRCourseReview />} />
 
       </Routes>
     </Router>

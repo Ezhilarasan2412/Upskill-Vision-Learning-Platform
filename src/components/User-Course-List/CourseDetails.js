@@ -9,6 +9,9 @@ const CourseDetails = () => {
   const [courseDetails, setCourseDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [rating, setRating] = useState(5);
+  const [reviewText, setReviewText] = useState("");
+  const [reviewSubmitted, setReviewSubmitted] = useState(false);
 
   useEffect(() => {
     const fetchCourseDetails = async () => {
@@ -49,6 +52,31 @@ const CourseDetails = () => {
 
     fetchCourseDetails();
   }, [courseId]);
+
+  const handleSubmitReview = async () => {
+    const userId = parseInt(localStorage.getItem("user_id"));
+    if (!userId) {
+      alert("User is not logged in");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/api/review", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_id: userId, course_id: courseId, rating, review_text: reviewText }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit review");
+      }
+
+      alert("Review submitted successfully!");
+      setReviewSubmitted(true);
+    } catch (err) {
+      alert(err.message);
+    }
+  };
 
   const handleBackButtonClick = () => {
     navigate("/enrolled");
@@ -144,7 +172,7 @@ const CourseDetails = () => {
   return (
     
     <div className="course-details-container">
-    <div className="course-details-title">
+    <div className="course-details--title">
       <h1>{courseDetails.course_name}</h1>
     </div>
 
@@ -211,6 +239,38 @@ const CourseDetails = () => {
       <h3>Overall Progress:</h3>
       <progress value={courseDetails.overallProgress} max={100} />
       <div>{Math.round(courseDetails.overallProgress)}%</div>
+      
+      {courseDetails.overallProgress === 100 && !reviewSubmitted && (
+        <div className="course-review-section">
+          <h3>Submit a Review:</h3>
+          <label>
+            Rating:
+            <select value={rating} onChange={(e) => setRating(parseInt(e.target.value))}>
+              {[5, 4, 3, 2, 1].map((star) => (
+                <option key={star} value={star}>
+                  {star} ⭐
+                </option>
+              ))}
+            </select>
+          </label>
+          <br />
+          <label htmlFor="review" className="review-label">Review:</label>
+  <textarea
+    id="review"
+    className="review-textarea"
+    value={reviewText}
+    onChange={(e) => setReviewText(e.target.value)}
+    placeholder="Write your review here..."
+    rows="4"
+  />
+          <br />
+          <button onClick={handleSubmitReview} className="course-review-submit-button">
+            Submit Review
+          </button>
+        </div>
+      )}
+
+      {reviewSubmitted && <p>Thank you for submitting your review!</p>}
     </div>
   );
 };

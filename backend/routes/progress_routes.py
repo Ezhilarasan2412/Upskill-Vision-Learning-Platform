@@ -76,6 +76,8 @@ def user_progress(user_id):
     return jsonify(progress_data), 200
 
 
+
+
 @progress_blueprint.route('/api/hr/performance', methods=['GET'])
 def get_filtered_performance():
     # Get the filter parameters from the query string

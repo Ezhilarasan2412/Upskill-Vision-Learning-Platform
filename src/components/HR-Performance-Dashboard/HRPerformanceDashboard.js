@@ -31,7 +31,7 @@ const UserProgressPage = () => {
   }, [navigate]);
 
   const handleUserClick = (userId) => {
-    navigate(`/user-progress-page/${userId}`); // Navigate to the user progress page
+    navigate(`/user-progress-page/${userId}`,{ state: { userType } }); // Navigate to the user progress page
   };
 
   const handleBackButtonClick = () => {
@@ -96,7 +96,7 @@ const UserProgressPage = () => {
         }}
       >
         <button className="user-progress-page-back-button" onClick={handleBackButtonClick}>
-          Back
+        ← Back
         </button>
 
         {filteredUsers.map((user) => (

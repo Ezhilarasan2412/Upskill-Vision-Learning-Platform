@@ -43,12 +43,13 @@ const HRdashboard = () => {
           <li onClick={() => setShowApprovalSection(!showApprovalSection)}>
             {showApprovalSection ? 'Hide User Approvals' : 'Approve Users'}
           </li>
+          <li onClick={() => navigate('/user-role-management', { state: { userType: 'hr' } })}>User Role Management</li>
+
           <li onClick={() => navigate('/course-list', { state: { userType: 'hr' } })}>View Courses List</li>
           <li>
             <Link to="/Courses" state={{ userType: "hr" }}>Create Course</Link>
           </li>
           <li onClick={() => navigate('/course-edit', { state: { userType: 'hr' } })}>Edit Course</li>
-          <li onClick={() => navigate('/user-role-management', { state: { userType: 'hr' } })}>User Role Management</li>
           <li onClick={() => navigate('/department-management-page', { state: { userType: 'hr' } })}>Manage Department</li>
         </ul>
         <Logout />
@@ -105,6 +106,10 @@ const HRdashboard = () => {
             <div className="hr-button-box">
               <h3>Active Vs Completed</h3>
               <button className="view-button" onClick={() => navigate('/hr-participant-pie-chart', { state: { userType: 'hr' } })}>View</button>
+            </div>
+            <div className="hr-button-box">
+              <h3>Course Review</h3>
+              <button className="Course Review" onClick={() => navigate('/hr-course-review', { state: { userType: 'hr' } })}>View</button>
             </div>
           </div>
         </section>

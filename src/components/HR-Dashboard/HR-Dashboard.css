@@ -110,8 +110,9 @@
 /* User List */
 .user-card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 0fr));
   gap: 20px;
+  justify-content: center;
   margin-top: 10px;
 }
 
@@ -236,8 +237,8 @@
 .hr-button-box {
   background: #2c3e50; /* Darker shade for better contrast */
   color: white;
-  padding: 15px; /* Reduced padding */
-  border-radius: 8px; /* Smaller border-radius */
+  padding: 10px; /* Reduced padding */
+  border-radius: 10px; /* Smaller border-radius */
   text-align: center;
   flex: 0.9; /* Adjusted flex to reduce size */
   margin: 4px;

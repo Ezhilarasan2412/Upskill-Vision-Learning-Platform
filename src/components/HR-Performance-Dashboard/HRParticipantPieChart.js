@@ -47,7 +47,7 @@ const ParticipantPieChartPage = () => {
     <div className="participant-piechart-page">
       <h1>Active vs Completed Courses</h1>
       <button className="user-role-management-back-button" onClick={handleBackButtonClick}>
-          Back
+      ← Back
         </button>
       {loading && <p>Loading participant data...</p>}
       {error && <p className="error">{error}</p>}

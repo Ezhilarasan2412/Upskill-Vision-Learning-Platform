@@ -35,7 +35,7 @@ body {
 
 /* Main Container */
 .course-details-container {
-  max-width: 90%;
+  max-width: 50%;
   margin: 50px auto;
   padding: 30px;
   background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
@@ -45,15 +45,14 @@ body {
 }
 
 /* Course Title */
-.course-details-title {
+.course-details--title {
   font-size: 1.5rem;
-  font-weight: 1000;
+  font-weight:bold;
   margin-bottom: 20px;
-  color: #333;
+  color: #000000 !important;
   text-align: center;
   letter-spacing: 1px;
   font-family: 'Roboto', sans-serif;
-
 }
 
 /* Course Description */
@@ -62,7 +61,7 @@ body {
   font-weight: 1000;
   margin-bottom: 20px;
   text-align: center;
-  color: #333;
+  color: #000000 !important;
   letter-spacing: 1px;
   font-family: 'Roboto', sans-serif;
 
@@ -233,6 +232,68 @@ body {
 .course-details-module-item:hover {
   background-color: #f8f9fa;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+/* Review Text Box */
+.course-details-review-box {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  resize: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+.course-details-review-box:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit Review Button */
+.course-review-submit-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.course-details-submit-review:hover {
+  background-color: #218838;
+}
+
+.review-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.review-textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.review-textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Animations */

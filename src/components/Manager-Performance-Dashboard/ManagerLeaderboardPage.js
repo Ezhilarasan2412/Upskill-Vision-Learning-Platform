@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./ManagerLeaderboardPage.css";
 
-const CourseLeaderboardPage = () => {
+const ManagerLeaderboardPage = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Use React Router's navigate
+  const navigate = useNavigate();
 
-  const managerId = localStorage.getItem("user_id"); // Retrieve manager_id from localStorage
+  const managerId = localStorage.getItem("user_id");
 
   useEffect(() => {
     if (!managerId) {
@@ -40,41 +40,51 @@ const CourseLeaderboardPage = () => {
   }, [managerId]);
 
   const handleBackButtonClick = () => {
-    navigate('/manager-dashboard');
+    navigate("/manager-dashboard");
+  };
+
+  const getMedal = (rank) => {
+    if (rank === 1) return "🥇";
+    if (rank === 2) return "🥈";
+    if (rank === 3) return "🥉";
+    return `#${rank}`;
+  };
+
+  const getInitials = (name) => {
+    const nameArray = name.split(" ");
+    const initials = nameArray.map((part) => part.charAt(0).toUpperCase()).join("");
+    return initials;
   };
 
   return (
     <div className="course-leaderboard-page">
       <h1>Course Leaderboard</h1>
-      <button className="user-progress-page-back-button" onClick={handleBackButtonClick}>
-          Back
-        </button>
-      {loading && <p>Loading leaderboard data...</p>}
+
+      <button className="back-button" onClick={handleBackButtonClick}>
+        ← Back
+      </button>
+
+      {loading && <div className="loading-spinner"></div>}
       {error && <p className="error">{error}</p>}
+
       {leaderboardData.length > 0 ? (
-        <table className="leaderboard-table">
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Name</th>
-              <th>Completed Courses</th>
-            </tr>
-          </thead>
-          <tbody>
-            {leaderboardData.map((participant, index) => (
-              <tr key={participant.user_id}>
-                <td>{index + 1}</td> {/* Rank */}
-                <td>{participant.name}</td>
-                <td>{participant.completed_courses_count}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="leaderboard-grid">
+          {leaderboardData.map((participant, index) => (
+            <div key={participant.user_id} className={`leaderboard-card rank-${index + 1}`}>
+              <div className="rank-badge">{getMedal(index + 1)}</div>
+              <div className="leaderboard-info">
+                <div className="avatar">{getInitials(participant.name)}</div>
+                <h2>{participant.name}</h2>
+                <p>Completed Courses: <strong>{participant.completed_courses_count}</strong></p>
+              </div>
+            </div>
+          ))}
+        </div>
       ) : (
-        !loading && <p>No participants found in your department.</p>
+        !loading && <p className="no-results">No participants found in your department.</p>
       )}
     </div>
   );
 };
 
-export default CourseLeaderboardPage;
+export default ManagerLeaderboardPage;

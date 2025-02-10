@@ -104,7 +104,7 @@ const AddModule = () => {
       >
 
         <button className="course-edit-page-back-button" onClick={handleBackButtonClick}>
-          Back
+          ← Back
         </button>
 
         {/* Display Success/Error Messages */}
