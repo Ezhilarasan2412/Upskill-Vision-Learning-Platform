@@ -8,7 +8,7 @@ UpSkill Vision is a comprehensive **Learning & Development (L&D) platform** that
 ✅ **For Employees:** Access courses, complete assessments, and receive personalized skill recommendations.  
 ✅ **For Managers & HR:** Gain insights into training effectiveness, skill gaps, and team performance through data-driven visualizations.  
 
-
+<br>
 
 ## **Key Features** 🔥  
 
@@ -19,12 +19,14 @@ UpSkill Vision is a comprehensive **Learning & Development (L&D) platform** that
 - 🔄 **Secure password management** with reset functionality.  
 - ✅ **HR approval system** for new user registrations.  
 
+<br>
 
 ### 📚 **Course Creation & Enrollment**  
 - ✏️ **HR/Admins can create courses** with title, description, instructor, and duration.  
 - 📢 **Automated notifications** for new course availability.  
 - 📥 **Easy enrollment & progress tracking.**  
 
+<br>
 
 ### 📖 **Course Overview & Management**  
 - 🔍 **View available courses** with details (**Instructor, Duration, Status**).  
@@ -37,30 +39,34 @@ UpSkill Vision is a comprehensive **Learning & Development (L&D) platform** that
   - 🎓 **Enrolled Courses**  
   - 🏁 **Completed Courses**  
 
+<br>
 
 ### 🛠️ **Admin & Instructor Dashboard**  
 - ✏️ **Edit course details, schedules, and modules.**  
 - 📜 **Audit trail** to track modifications for accountability.  
 
+<br>
 
 ### 📊 **Detailed Course Insights & Learning Progress**  
 - 🎯 **Real-time progress tracking** (**modules, quizzes, assessments**).  
 - 📝 **Quizzes & assessments** with instant scoring.  
 - 📈 **Visualization of learning progress** (bar charts, performance indicators).  
 
+<br>
 
 ### 📊 **Individual User Visualization Section**  
 - 📂 **Dashboard** with all enrolled courses and their status.  
 - 🎯 **Percentage-based progress tracking** for better clarity.  
 - 📊 **Charts & graphs** to separate completed vs. in-progress courses.  
 
+<br>
 
 ### 📡 **Manager & HR Analytics Dashboard**  
 - 📊 **Managers can monitor team performance**, including completion rates and quiz scores.  
 - 📈 **HR teams can analyze organization-wide training trends** and identify skill gaps.  
 - 🔍 **Filter insights** by course, date range, or employee.  
 
-
+<br>
 
 ## **Tech Stack** 🛠️  
 
