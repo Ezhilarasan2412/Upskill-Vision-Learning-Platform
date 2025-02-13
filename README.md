@@ -18,9 +18,7 @@ UpSkill Vision is a comprehensive **Learning & Development (L&D) platform** that
 - 🎯 **Role-based access control** with customizable permissions.  
 - 🔄 **Secure password management** with reset functionality.  
 - ✅ **HR approval system** for new user registrations.  
-
 <br>
-
 ### 📚 **Course Creation & Enrollment**  
 - ✏️ **HR/Admins can create courses** with title, description, instructor, and duration.  
 - 📢 **Automated notifications** for new course availability.  
