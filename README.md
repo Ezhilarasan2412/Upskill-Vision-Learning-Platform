@@ -17,7 +17,8 @@ UpSkill Vision is a comprehensive **Learning & Development (L&D) platform** that
 - 🔑 **Multi-Factor Authentication (MFA)** for enhanced security.  
 - 🎯 **Role-based access control** with customizable permissions.  
 - 🔄 **Secure password management** with reset functionality.  
-- ✅ **HR approval system** for new user registrations.  
+- ✅ **HR approval system** for new user registrations.
+  
 <br>
 ### 📚 **Course Creation & Enrollment**  
 - ✏️ **HR/Admins can create courses** with title, description, instructor, and duration.  
