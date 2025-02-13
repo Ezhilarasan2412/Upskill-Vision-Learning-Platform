@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+UpSkill Vision – Learning & Development Platform 🎓💡
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Overview 🏆
+UpSkill Vision is a comprehensive Learning & Development (L&D) platform that helps employees enhance their skills while providing managers and HR teams with powerful analytics to track progress. 📊
 
-In the project directory, you can run:
+✅ For Employees: Access courses, complete assessments, and receive personalized skill recommendations.
+✅ For Managers & HR: Gain insights into training effectiveness, skill gaps, and team performance through data-driven visualizations.
 
-### `npm start`
+Key Features 🔥
+🔐 Secure Authentication & Role Management
+👥 Multi-role user management (HR Admin, Instructor, Manager, Employee).
+🔑 Multi-Factor Authentication (MFA) for enhanced security.
+🎯 Role-based access control with customizable permissions.
+🔄 Secure password management with reset functionality.
+✅ HR approval system for new user registrations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+📚 Course Creation & Enrollment
+✏️ HR/Admins can create courses with title, description, instructor, and duration.
+📢 Automated notifications for new course availability.
+📥 Easy enrollment & progress tracking.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+📖 Course Overview & Management
+🔍 View available courses with details (Instructor, Duration, Status).
+📌 Enrollment tracking:
+✅ "Enrolled"
+⏳ "Not Enrolled"
+🎓 "Completed"
+🔽 Course filtering options:
+📌 All Courses
+🎓 Enrolled Courses
+🏁 Completed Courses
 
-### `npm test`
+🛠️ Admin & Instructor Dashboard
+✏️ Edit course details, schedules, and modules.
+📜 Audit trail to track modifications for accountability.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📊 Detailed Course Insights & Learning Progress
+🎯 Real-time progress tracking (modules, quizzes, assessments).
+📝 Quizzes & assessments with instant scoring.
+📈 Visualization of learning progress (bar charts, performance indicators).
 
-### `npm run build`
+📊 Individual User Visualization Section
+📂 Dashboard with all enrolled courses and their status.
+🎯 Percentage-based progress tracking for better clarity.
+📊 Charts & graphs to separate completed vs. in-progress courses.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📡 Manager & HR Analytics Dashboard
+📊 Managers can monitor team performance, including completion rates and quiz scores.
+📈 HR teams can analyze organization-wide training trends and identify skill gaps.
+🔍 Filter insights by course, date range, or employee.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tech Stack 🛠️
+Backend: ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
+Database: ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+Frontend: ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 	![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+API Integration: 
+API: ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
