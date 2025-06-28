@@ -12,7 +12,7 @@ UpSkill Vision is a comprehensive **Learning & Development (L&D) platform** that
 
 ## **Key Features** 🔥  
 
-### 🔐 **Secure Authentication & Role Management**  
+### 🔐 **Secure Authentication & Role Management*  
 - 👥 **Multi-role user management** (HR Admin, Instructor, Manager, Employee).  
 - 🔑 **Multi-Factor Authentication (MFA)** for enhanced security.  
 - 🎯 **Role-based access control** with customizable permissions.  
